@@ -6,13 +6,13 @@ mode.onclick = function(){
         if(document.body.classList.contains("dark-theme")){
             mode.classList.remove("fa-solid","fa-toggle-off");
             mode.classList.add("fa-solid","fa-toggle-on");
-            mode.title = "Light Mode";
+            // mode.title = "Back to Light Mode";
             mode.style.color = "var(--success-color)";
             
         }else{
             mode.classList.remove("fa-solid","fa-toggle-on");
             mode.classList.add("fa-solid","fa-toggle-off");
-            mode.title = "Dark Mode";
+            // mode.title = "Dark Mode";
             mode.style.color = "var(--dark-color)";
            
         }
