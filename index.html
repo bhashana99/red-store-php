@@ -15,7 +15,7 @@
             <img src="./images/logo.png" alt="RedStore Logo" width="125px" height="auto">
         </div>
         <nav>
-            <ul>
+            <ul id="menuItem">
                 <li><a href="">Home</a></li>
                 <li><a href="">Product</a></li>
                 <li><a href="">About</a></li>
@@ -25,9 +25,11 @@
             </ul>
         </nav>
         
-        <i class="fa-solid fa-bag-shopping" width="30px" id="cart-icon"></i>
+        <i class="fa-solid fa-bag-shopping" width="30px" id="cart-icon">
+            <i class="fa-solid fa-bars " id="menu-icon" onclick="menutoggle()"></i>
+        </i>
         <label for="mode" class="label">Dark Mode
-        <i class="fa-solid fa-toggle-off" id="mode" ></i>
+        <i class="fa-solid fa-toggle-off" id="mode"  ></i>
         </label>
     </div>
     <div class="row">
