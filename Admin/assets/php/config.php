@@ -12,7 +12,7 @@ public $conn;
 public function __construct(){
     try{
         $this->conn = new PDO($this->dsn,$this->dbUser,$this->dbPassword);
-        echo 'database connected!';
+        //echo 'database connected!';
     }catch(PDOException $e){
         echo 'Error: '.$e->getMessage();
     }
@@ -28,7 +28,14 @@ public function test_input($data){
 
 }
 
-
+//Error Success Message Alter
+public function showMessage($type,$message){
+    return '<div class="alert alert-'.$type.' alert-dismissible" >
+                <button class="close" type="button" data-dismiss="alert" > &times;
+                </button>
+                <strong class="text-center" >'.$message.'</strong>   
+            </div>';
+}
 
 
 }
