@@ -18,7 +18,15 @@ public function __construct(){
     }
 }
 
+//Check Input
+public function test_input($data){
+    $data = trim($data); // to remove all white spaces
+    $data = stripcslashes($data); // to remove all slashes
+    $data = htmlspecialchars($data); // to remove special characters
+    
+    return $data;
 
+}
 
 
 
