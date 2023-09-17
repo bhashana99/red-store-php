@@ -63,5 +63,28 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/js/bootstrap.min.js" integrity="sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+<script>
+
+$(document).ready(function(){
+    //Admin Login Ajax Request
+    $("#adminLoginBtn").click(function(e){
+        if($("admin-login-form")[0].checkValidity()){
+            e.preventDefault();
+
+            $(this).val('Please Wait...');
+            $.ajax({
+                url:'assets\php\admin-action.php',
+                method:'post',
+                data: $("#admin-login-form").serialize()+'&action=adminLogin',
+                success:function(response){
+                    
+                }
+            })
+        }
+    })
+});
+
+</script>
+
 </body>
 </html>
