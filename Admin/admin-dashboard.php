@@ -73,38 +73,7 @@ if(!isset($_SESSION['username'])){
                         <i class="fas fa-user-friends"></i>&nbsp;&nbsp;Users
                     </a>
 
-                    <a href="admin-notes.php" class="list-group-item text-light admin-link
-                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-notes.php')? "nav-active":"" ?>">
-                        <i class="fas fa-sticky-note"></i>&nbsp;&nbsp;Notes
-                    </a>
-
-                    <a href="admin-feedback.php" class="list-group-item text-light admin-link
-                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-feedback.php')? "nav-active":"" ?>">
-                        <i class="fas fa-comment"></i>&nbsp;&nbsp;Feedback
-                    </a>
-
-                    <a href="admin-notification.php" class="list-group-item text-light admin-link
-                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-notification.php')? "nav-active":"" ?>">
-                        <i class="fas fa-bell"></i>&nbsp;&nbsp;Notification&nbsp;<span id="checkNotification"></span>
-                    </a>
-
-                    <a href="admin-deleteduser.php" class="list-group-item text-light admin-link
-                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-deleteduser.php')? "nav-active":"" ?>">
-                        <i class="fas fa-user-slash"></i>&nbsp;&nbsp;Deleted Users
-                    </a>
-
-                    <a href="assets/php/admin-action.php?export=excel" class="list-group-item text-light admin-link">
-                        <i class="fas fa-table"></i>&nbsp;&nbsp;Export Users
-                    </a>
-
-                    <a href="#" class="list-group-item text-light admin-link">
-                        <i class="fas fa-id-card"></i>&nbsp;&nbsp;Profile
-                    </a>
-
-                    <a href="#" class="list-group-item text-light admin-link">
-                        <i class="fas fa-cog"></i>&nbsp;&nbsp;Setting
-                    </a>
-
+                   
                     
                 </div>
             </div>
@@ -121,7 +90,7 @@ if(!isset($_SESSION['username'])){
                         </a>
                     </div>
                 </div>
-                
+
         </div>
 </div>
     
