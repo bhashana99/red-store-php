@@ -58,7 +58,7 @@ require_once './assets/php/admin-db.php';
                   <input type="text" name="title" id="title" class="form-control form-control-lg" placeholder="Enter Title" required >
                 </div>
                 <div class="form-group">
-                  <input type="submit" value="Update Note" class="btn btn-info btn-block btn-lg" id="editNoteBtn" name="editNote" >
+                  <input type="submit" value="Update Note" class="btn btn-info btn-block btn-lg" id="editCategoryBtn" name="editNote" >
                 </div>
               </form>
       </div>
@@ -144,6 +144,30 @@ require_once './assets/php/admin-db.php';
                 }
             });
         });
+
+        //update category name ajax request
+        $("#editCategoryBtn").click(function(e){
+            if($("#edit-category-form")[0].checkValidity()){
+                e.preventDefault();
+
+                $.ajax({
+                    url:'assets/php/admin-action.php',
+                    method:'post',
+                    data:$("#edit-category-form").serialize()+"&action=update_category",
+                    success:function(response){
+
+                        Swal.fire({
+                            title:'Category Edit Successfully',
+                            type:'success'
+                        });
+                        $("#edit-category-form")[0].reset();
+                        $("#editCategoryModal").model('hide');
+                        fetchAllCategories();
+                    }
+                });
+            }
+        });
+
     });
 </script>
 </body>
