@@ -39,6 +39,7 @@ $title = isset($titles[$currentFile]) ? $titles[$currentFile] : 'Default Title';
     <script src="https://kit.fontawesome.com/fad89713bc.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="https://cdn.datatables.net/v/bs4/dt-1.13.6/datatables.min.js"></script>
     <script>
       $(document).ready(function(){
         $("#open-nav").click(function(){
