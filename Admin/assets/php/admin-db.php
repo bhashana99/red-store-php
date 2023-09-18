@@ -65,6 +65,15 @@ class Admin extends Database{
         return true;
      }
 
+     //Delete Category
+     public function delete_category($id){
+        $sql = "DELETE FROM categories WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id'=>$id]);
+        
+        return true;
+     }
+
 }
 
    
