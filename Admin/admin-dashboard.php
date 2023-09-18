@@ -93,6 +93,12 @@ if(!isset($_SESSION['username'])){
                     <i class="fa-solid fa-eye"></i>&nbsp;&nbsp;View Products
                     </a>
 
+                    <a href="admin-insertCategories.php" class="list-group-item text-light admin-link
+                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-insertCategories.php')? "nav-active":"" ?>">
+                    <i class="fa-regular fa-square-plus"></i>&nbsp;&nbsp;Insert Categories
+                    </a>
+
+
                    
                     
                 </div>
