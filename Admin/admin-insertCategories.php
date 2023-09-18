@@ -86,6 +86,18 @@ require_once './assets/php/admin-db.php';
             }
         });
 
+        //Fetch all categories Ajax Request
+        function fetchAllCategories(){
+            $.ajax({
+                url:'assets/php/admin-action.php',
+                method:'post',
+                data:{action: 'fetchAllCategories'},
+                success:function(response){
+                    console.log(response);
+                }
+            });
+        }
+
     });
 </script>
 </body>

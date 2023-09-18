@@ -33,7 +33,7 @@ class Admin extends Database{
      }
 
      //Fetch All Categories
-     public function fetchAllCategories(){
+     public function fetchAll_Categories(){
         $sql = "SELECT title FROM categories";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
