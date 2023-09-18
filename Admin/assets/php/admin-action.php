@@ -36,4 +36,44 @@ if(isset($_POST['action']) && $_POST['action'] == 'categoryAdd'){
     }
 }
 
+
+//Handle Fetch all categories Ajax Request
+if(isset($_POST['action']) && $_POST['action'] == 'fetchAllCategories'){
+    $output = '';
+    $data = $admin->fetchAll_Categories();
+    
+    if($data){
+        $output .= '<table class="table table-striped table-bordered text-center">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Categories</th>
+                <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>';
+                foreach($data as $category){
+                    $output .= '<tr>
+                                    <td>'.$category['id'].'</td>
+                                    <td>'.$category['title'].'</td>
+                                    <td>
+                                    <a href="#" id="'.$category['id'].'" title="Edit Category" 
+                                     class="text-primary categoryEditIcon" data-toggle="modal" data-target="#showCategoryModal" >
+                                     <i class="fa-solid fa-pen-to-square"></i></a>&nbsp;&nbsp;
+
+                                    <a href="#" id="'.$category['id'].'" title="Delete Category" class="text-danger deleteCategoryIcon" >
+                                    <i class="fas fa-trash-alt fa-lg"></i></a>&nbsp;&nbsp;
+                                 </td>
+                                </tr>';
+                    
+                    
+                }
+                $output .= '</tbody>
+                </table>';
+                        
+                echo $output;            
+    }
+}
+
+
 ?>

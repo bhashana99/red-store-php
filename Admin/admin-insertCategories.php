@@ -80,12 +80,13 @@ require_once './assets/php/admin-db.php';
                             $("#categoryAddError").html(response);
                             $("#categoryAddBtn").val('Add');
                         }
-                        
+                        fetchAllCategories();
                     }
                 });
             }
         });
 
+        fetchAllCategories();
         //Fetch all categories Ajax Request
         function fetchAllCategories(){
             $.ajax({
@@ -93,7 +94,10 @@ require_once './assets/php/admin-db.php';
                 method:'post',
                 data:{action: 'fetchAllCategories'},
                 success:function(response){
-                    console.log(response);
+                    $("#showAllCategories").html(response);
+                    $("table").DataTable({
+                         order: [0, 'desc']
+                    });
                 }
             });
         }

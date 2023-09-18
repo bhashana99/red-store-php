@@ -34,10 +34,13 @@ class Admin extends Database{
 
      //Fetch All Categories
      public function fetchAll_Categories(){
-        $sql = "SELECT title FROM categories";
+        $sql = "SELECT * FROM categories";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // if (!$row) {
+        //     print_r($stmt->errorInfo()); 
+        // }
 
         return $row;
      }
