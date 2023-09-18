@@ -55,7 +55,7 @@ require_once './assets/php/admin-db.php';
               <form action="#" method="post" id="edit-category-form" class="px-3">
                 <input type="hidden" name="id" id="id">
                 <div class="form-group">
-                  <input type="text" name="title" id="title" class="form-control form-control-lg" placeholder="Enter Title" required>
+                  <input type="text" name="title" id="title" class="form-control form-control-lg" placeholder="Enter Title" required >
                 </div>
                 <div class="form-group">
                   <input type="submit" value="Update Note" class="btn btn-info btn-block btn-lg" id="editNoteBtn" name="editNote" >
@@ -136,9 +136,13 @@ require_once './assets/php/admin-db.php';
                 method:'post',
                 data:{edit_id: edit_id},
                 success: function(response){
-                    console.log(response);
+                    //console.log(response);
+                    data = JSON.parse(response);
+                    //console.log(data);
+                    $("#id").val(data.id);
+                    $("#title").val(data.title);
                 }
-            })
+            });
         });
     });
 </script>
