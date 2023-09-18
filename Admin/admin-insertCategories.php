@@ -168,6 +168,40 @@ require_once './assets/php/admin-db.php';
             }
         });
 
+        //Delete category Ajax Request
+        $("body").on("click",".deleteCategoryIcon",function(e){
+            e.preventDefault();
+            del_id = $(this).attr('id');
+
+            Swal.fire({
+                title:'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result)=>{
+                if (result.value) {
+                    $.ajax({
+                        url: 'assets/php/admin-action.php',
+                        method:'post',
+                        data:{del_id: del_id},
+                        success:function(response){
+                        Swal.fire(
+                            'Deleted!',
+                            'Note deleted successfully!',
+                            'success'
+                    )
+                    fetchAllCategories();
+                        }
+
+                    });
+                    
+                    }
+            });
+        });
+
     });
 </script>
 </body>
