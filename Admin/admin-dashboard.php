@@ -63,20 +63,18 @@ if(!isset($_SESSION['username'])){
                 <h4 class="text-light text-center p-2">Admin panel</h4>
 
                 <div class="list-group list-group-flush">
-                    <a href="admin-dashboard.php" class="list-group-item text-light admin-link
-                        <?= (basename($_SERVER['PHP_SELF']) == 'admin-dashboard.php')? "nav-active":"" ?>">
-                        <i class="fas fa-chart-pie"></i>&nbsp;Dashboard
+
+                    <a href="admin-allOrders.php" class="list-group-item text-light admin-link
+                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-allOrders.php')? "nav-active":"" ?>">
+                    <i class="fa-solid fa-list-check"></i>&nbsp;&nbsp;All Orders
                     </a>
 
-                    <a href="admin-user.php" class="list-group-item text-light admin-link
-                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-user.php')? "nav-active":"" ?>">
-                        <i class="fas fa-user-friends"></i>&nbsp;&nbsp;Users
+                    <a href="admin-allPayments.php" class="list-group-item text-light admin-link
+                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-allPayments.php')? "nav-active":"" ?>">
+                    <i class="fa-regular fa-credit-card"></i>&nbsp;&nbsp;All Payments
                     </a>
 
-                    <a href="admin-blockUser.php" class="list-group-item text-light admin-link
-                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-blockUser.php')? "nav-active":"" ?>">
-                        <i class="fas fa-user-slash"></i>&nbsp;&nbsp;Blocked Users
-                    </a>
+                    
 
                     <a href="admin-notification.php" class="list-group-item text-light admin-link
                     <?= (basename($_SERVER['PHP_SELF']) == 'admin-notification.php')? "nav-active":"" ?>">
@@ -98,15 +96,22 @@ if(!isset($_SESSION['username'])){
                     <i class="fa-regular fa-square-plus"></i>&nbsp;&nbsp;Insert Categories
                     </a>
 
-                    <a href="admin-allOrders.php" class="list-group-item text-light admin-link
-                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-allOrders.php')? "nav-active":"" ?>">
-                    <i class="fa-solid fa-list-check"></i>&nbsp;&nbsp;All Orders
+                    <a href="admin-user.php" class="list-group-item text-light admin-link
+                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-user.php')? "nav-active":"" ?>">
+                        <i class="fas fa-user-friends"></i>&nbsp;&nbsp;Users
                     </a>
 
-                    <a href="admin-allPayments.php" class="list-group-item text-light admin-link
-                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-allPayments.php')? "nav-active":"" ?>">
-                    <i class="fa-regular fa-credit-card"></i>&nbsp;&nbsp;All Payments
+                    <a href="admin-blockUser.php" class="list-group-item text-light admin-link
+                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-blockUser.php')? "nav-active":"" ?>">
+                        <i class="fas fa-user-slash"></i>&nbsp;&nbsp;Blocked Users
                     </a>
+
+                    <a href="admin-dashboard.php" class="list-group-item text-light admin-link
+                        <?= (basename($_SERVER['PHP_SELF']) == 'admin-dashboard.php')? "nav-active":"" ?>">
+                        <i class="fas fa-chart-pie"></i>&nbsp;Dashboard
+                    </a>
+
+                   
 
 
 
@@ -127,7 +132,7 @@ if(!isset($_SESSION['username'])){
                         </a>
                     </div>
                 </div>
-
+            </div>
         </div>
 </div>
     
