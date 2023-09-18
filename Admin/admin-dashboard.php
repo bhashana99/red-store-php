@@ -85,7 +85,12 @@ if(!isset($_SESSION['username'])){
 
                     <a href="admin-insertProduct.php" class="list-group-item text-light admin-link
                     <?= (basename($_SERVER['PHP_SELF']) == 'admin-insertProduct.php')? "nav-active":"" ?>">
-                    <i class="fa-solid fa-cart-plus"></i></i>&nbsp;&nbsp;Insert Product
+                    <i class="fa-solid fa-cart-plus"></i>&nbsp;&nbsp;Insert Product
+                    </a>
+
+                    <a href="admin-viewProducts.php" class="list-group-item text-light admin-link
+                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-viewProducts.php')? "nav-active":"" ?>">
+                    <i class="fa-solid fa-eye"></i>&nbsp;&nbsp;View Products
                     </a>
 
                    
