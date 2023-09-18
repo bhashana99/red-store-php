@@ -11,6 +11,7 @@ require_once './assets/php/admin-db.php';
             <h2>Add New Categories</h2>
 
             <form action="#" id="categoryAddForm" class="px-3">
+            <div id="categoryAddError"></div>
     <div class="form-row align-items-center">
         <div class="col">
             <input type="text" class="form-control" name='NewCategory' id="newCategoryName" placeholder="Enter category name" autofocus>
@@ -19,7 +20,7 @@ require_once './assets/php/admin-db.php';
             <input type="submit" class="btn btn-success" id="categoryAddBtn" value="Add">
         </div>
     </div>
-    <div id="adminLoginAlert"></div>
+    
 </form>
 
         </div>
@@ -55,11 +56,16 @@ require_once './assets/php/admin-db.php';
                         if(response === 'category_add'){
                             $("#categoryAddBtn").val('Add');
                             $("#categoryAddForm")[0].reset();
+                            $("#categoryAddError").html('');
                             Swal.fire({
                                 title: 'Category Add Successfully',
                                 type: 'success'
                             });
+                        }else{
+                            $("#categoryAddError").html(response);
+                            $("#categoryAddBtn").val('Add');
                         }
+                        
                     }
                 });
             }
