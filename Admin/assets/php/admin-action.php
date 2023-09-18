@@ -72,8 +72,17 @@ if(isset($_POST['action']) && $_POST['action'] == 'fetchAllCategories'){
                 </table>';
                         
                 echo $output;            
-    }
+    } else{
+        echo '<h3 class="text-center text-secondary">:( You have not category yet!';
+      }
 }
 
+//Handle Edit category name Ajax request
+if(isset($_POST['edit_id'])){
+    $id = $_POST['edit_id'];
+
+    $row = $admin->edit_category($id);
+    echo json_encode($row);
+}
 
 ?>
