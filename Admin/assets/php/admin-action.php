@@ -58,7 +58,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'fetchAllCategories'){
                                     <td>'.$category['title'].'</td>
                                     <td>
                                     <a href="#" id="'.$category['id'].'" title="Edit Category" 
-                                     class="text-primary categoryEditIcon" data-toggle="modal" data-target="#showCategoryModal" >
+                                     class="text-primary categoryEditIcon" data-toggle="modal" data-target="#editCategoryModal" >
                                      <i class="fa-solid fa-pen-to-square"></i></a>&nbsp;&nbsp;
 
                                     <a href="#" id="'.$category['id'].'" title="Delete Category" class="text-danger deleteCategoryIcon" >

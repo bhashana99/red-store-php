@@ -43,7 +43,28 @@ require_once './assets/php/admin-db.php';
     
 </div>
 
-
+<!-- Edit Category name Model -->
+<div class="modal fade" id="editCategoryModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-info ">
+        <h4 class="modal-title text-light">Edit Category name</h4>
+        <button type="button" class="close text-light" data-dismiss="modal" >&times;</button>
+      </div>
+      <div class="modal-body">
+              <form action="#" method="post" id="edit-category-form" class="px-3">
+                <input type="hidden" name="id" id="id">
+                <div class="form-group">
+                  <input type="text" name="title" id="title" class="form-control form-control-lg" placeholder="Enter Title" required>
+                </div>
+                <div class="form-group">
+                  <input type="submit" value="Update Note" class="btn btn-info btn-block btn-lg" id="editNoteBtn" name="editNote" >
+                </div>
+              </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -102,6 +123,23 @@ require_once './assets/php/admin-db.php';
             });
         }
 
+
+        //edit category name ajax request
+        $("body").on("click",".categoryEditIcon", function(e){
+            e.preventDefault();
+
+            edit_id = $(this).attr('id');  
+            // console.log(edit_id);
+
+            $.ajax({
+                url:'assets/php/admin-action.php',
+                method:'post',
+                data:{edit_id: edit_id},
+                success: function(response){
+                    console.log(response);
+                }
+            })
+        });
     });
 </script>
 </body>
