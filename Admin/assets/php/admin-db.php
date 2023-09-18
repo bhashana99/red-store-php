@@ -32,6 +32,16 @@ class Admin extends Database{
         return true;
      }
 
+     //Fetch All Categories
+     public function fetchAllCategories(){
+        $sql = "SELECT title FROM categories";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $row;
+     }
+
 
 
 }
