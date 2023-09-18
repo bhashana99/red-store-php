@@ -5,6 +5,24 @@ if(!isset($_SESSION['username'])){
   exit();
 }
 
+// Define an array of titles for each page
+$titles = array(
+    'admin-allOrders.php' => 'All Orders',
+    'admin-allPayments.php' => 'All Payments',
+    'admin-notification.php' => 'Notification',
+    'admin-insertProduct.php' => 'Insert Product',
+    'admin-viewProducts.php' => 'View Products',
+    'admin-insertCategories.php' => 'Insert Categories',
+    'admin-users.php' => 'Users',
+    'admin-blockUser.php' => 'Blocked Users',
+    'admin-dashboard.php' => 'Dashboard'
+);
+
+// Get the current PHP file name
+$currentFile = basename($_SERVER['PHP_SELF']);
+
+// Use the file name to fetch the title from the array, or use a default title if not found
+$title = isset($titles[$currentFile]) ? $titles[$currentFile] : 'Default Title';
 
 ?>
 
@@ -13,13 +31,7 @@ if(!isset($_SESSION['username'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php
-      $title = basename($_SERVER['PHP_SELF'],'.php');
-      $title = explode('-',$title);
-      $title = ucfirst($title[1]);
-      //echo $title;
-
-    ?>
+    
     <title> <?= $title;  ?> | Admin Panel</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
@@ -96,8 +108,8 @@ if(!isset($_SESSION['username'])){
                     <i class="fa-regular fa-square-plus"></i>&nbsp;&nbsp;Insert Categories
                     </a>
 
-                    <a href="admin-user.php" class="list-group-item text-light admin-link
-                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-user.php')? "nav-active":"" ?>">
+                    <a href="admin-users.php" class="list-group-item text-light admin-link
+                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-users.php')? "nav-active":"" ?>">
                         <i class="fas fa-user-friends"></i>&nbsp;&nbsp;Users
                     </a>
 
