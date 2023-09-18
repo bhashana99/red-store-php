@@ -16,7 +16,7 @@ require_once './assets/php/admin-db.php';
             <input type="text" class="form-control" name='NewCategory' id="newCategoryName" placeholder="Enter category name" autofocus>
         </div>
         <div class="col-auto">
-            <input type="submit" class="btn btn-success" id="categoryAddBtn" value="Submit">
+            <input type="submit" class="btn btn-success" id="categoryAddBtn" value="Add">
         </div>
     </div>
     <div id="adminLoginAlert"></div>
@@ -49,11 +49,16 @@ require_once './assets/php/admin-db.php';
                 $.ajax({
                     url:'assets/php/admin-action.php',
                     method:'post',
-                    data:$("#categoryAddForm")+'&action=categoryAdd',
+                    data:$("#categoryAddForm").serialize()+'&action=categoryAdd',
                     success:function(response){
-                        console.log(response);
+                        // console.log(response);
+                        if(response === 'category_add'){
+                            $(this).val('Add');
+                            $("#categoryAddForm")[0].reset();
+                            
+                        }
                     }
-                })
+                });
             }
         });
 

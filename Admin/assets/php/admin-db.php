@@ -24,6 +24,13 @@ class Admin extends Database{
 
      }
 
+     //add new category
+     public function insert_category($category_name){
+        $sql = "INSERT INTO categories(title) VALUES (:category_name)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['category_name'=>$category_name]);
+        return true;
+     }
 
 
 
