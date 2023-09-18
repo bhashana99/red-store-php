@@ -45,7 +45,15 @@ class Admin extends Database{
         return $row;
      }
 
+     //Edit category
+     public function edit_category($id){
+      $sql = "SELECT * FROM categories WHERE id=:id";
+      $stmt = $this->conn->prepare($sql);
+      $stmt->execute(['id'=>$id]);
+      $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+      return $row;
+     }
 
 }
 
