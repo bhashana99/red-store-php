@@ -55,6 +55,16 @@ class Admin extends Database{
       return $row;
      }
 
+     //Update Category
+     public function update_category($title,$id){
+        $sql = "UPDATE categories SET title=:title WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id'=>$id,'title'=>$title]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return true;
+     }
+
 }
 
    
