@@ -161,7 +161,7 @@ require_once './assets/php/admin-db.php';
                             type:'success'
                         });
                         $("#edit-category-form")[0].reset();
-                        $("#editCategoryModal").model('hide');
+                        $("#editCategoryModal").modal('hide');
                         fetchAllCategories();
                     }
                 });
