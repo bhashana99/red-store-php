@@ -73,6 +73,11 @@ if(!isset($_SESSION['username'])){
                         <i class="fas fa-user-friends"></i>&nbsp;&nbsp;Users
                     </a>
 
+                    <a href="admin-blockUser.php" class="list-group-item text-light admin-link
+                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-blockUser.php')? "nav-active":"" ?>">
+                        <i class="fas fa-user-slash"></i>&nbsp;&nbsp;Blocked Users
+                    </a>
+
                    
                     
                 </div>
