@@ -78,6 +78,11 @@ if(!isset($_SESSION['username'])){
                         <i class="fas fa-user-slash"></i>&nbsp;&nbsp;Blocked Users
                     </a>
 
+                    <a href="admin-notification.php" class="list-group-item text-light admin-link
+                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-notification.php')? "nav-active":"" ?>">
+                        <i class="fas fa-bell"></i>&nbsp;&nbsp;Notification&nbsp;<span id="checkNotification"></span>
+                    </a>
+
                    
                     
                 </div>
