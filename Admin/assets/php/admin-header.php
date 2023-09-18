@@ -78,7 +78,7 @@ $title = isset($titles[$currentFile]) ? $titles[$currentFile] : 'Default Title';
 
                     <a href="admin-allOrders.php" class="list-group-item text-light admin-link
                     <?= (basename($_SERVER['PHP_SELF']) == 'admin-allOrders.php')? "nav-active":"" ?>">
-                    <i class="fa-solid fa-list-check"></i>&nbsp;&nbsp;All Orders
+                    <i class="fa-solid fa-truck"></i>&nbsp;&nbsp;All Orders
                     </a>
 
                     <a href="admin-allPayments.php" class="list-group-item text-light admin-link
