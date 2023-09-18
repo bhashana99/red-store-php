@@ -53,9 +53,12 @@ require_once './assets/php/admin-db.php';
                     success:function(response){
                         // console.log(response);
                         if(response === 'category_add'){
-                            $(this).val('Add');
+                            $("#categoryAddBtn").val('Add');
                             $("#categoryAddForm")[0].reset();
-                            
+                            Swal.fire({
+                                title: 'Category Add Successfully',
+                                type: 'success'
+                            });
                         }
                     }
                 });
