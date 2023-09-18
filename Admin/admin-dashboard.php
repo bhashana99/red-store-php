@@ -103,6 +103,11 @@ if(!isset($_SESSION['username'])){
                     <i class="fa-solid fa-list-check"></i>&nbsp;&nbsp;All Orders
                     </a>
 
+                    <a href="admin-allPayments.php" class="list-group-item text-light admin-link
+                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-allPayments.php')? "nav-active":"" ?>">
+                    <i class="fa-regular fa-credit-card"></i>&nbsp;&nbsp;All Payments
+                    </a>
+
 
 
                    
