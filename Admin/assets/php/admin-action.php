@@ -85,4 +85,11 @@ if(isset($_POST['edit_id'])){
     echo json_encode($row);
 }
 
+//Handle Update category name Ajax request
+if(isset($_POST['action']) && $_POST['action'] == 'update_category'){
+    $id = $admin->test_input($_POST['id']);
+    $title = $admin->test_input($_POST['title']);
+
+    $admin->update_category($title,$id);
+}
 ?>
