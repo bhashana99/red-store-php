@@ -92,4 +92,12 @@ if(isset($_POST['action']) && $_POST['action'] == 'update_category'){
 
     $admin->update_category($title,$id);
 }
+
+//Handle Delete Ajax Request
+if(isset($_POST['del_id'])){
+    $id = $_POST['del_id'];
+    $admin->delete_category($id);
+}
+
+
 ?>
