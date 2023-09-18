@@ -12,8 +12,23 @@ class Admin extends Database{
 
         return $row;
     }
+
+     //Check Input category
+     public function check_category($category_name){
+      $sql = "SELECT * FROM categories WHERE title=:title";
+      $stmt = $this->conn->prepare($sql);
+      $stmt->execute(['title'=>$category_name]);
+      $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+      return $row;
+
+     }
+
+
+
+
 }
 
-
+   
 
 ?>

@@ -1,6 +1,7 @@
 <?php
 
 require_once './assets/php/admin-header.php';
+require_once './assets/php/admin-db.php';
 
 ?>
 
