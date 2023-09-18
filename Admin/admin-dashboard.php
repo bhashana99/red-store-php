@@ -83,6 +83,11 @@ if(!isset($_SESSION['username'])){
                         <i class="fas fa-bell"></i>&nbsp;&nbsp;Notification&nbsp;<span id="checkNotification"></span>
                     </a>
 
+                    <a href="admin-insertProduct.php" class="list-group-item text-light admin-link
+                    <?= (basename($_SERVER['PHP_SELF']) == 'admin-insertProduct.php')? "nav-active":"" ?>">
+                    <i class="fa-solid fa-cart-plus"></i></i>&nbsp;&nbsp;Insert Product
+                    </a>
+
                    
                     
                 </div>
