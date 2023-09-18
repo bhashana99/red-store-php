@@ -22,5 +22,18 @@ if(isset($_POST['action']) && $_POST['action'] == 'adminLogin'){
     }
 }
 
+//Handle Add category Ajax Request
+if(isset($_POST['action']) && $_POST['action'] == 'categoryAdd'){
+    $category = $admin->test_input($_POST['NewCategory']);
+
+    $isCategory = $admin->check_category($category);
+
+    if($isCategory == null){
+        
+       echo 'category_add';
+    }else{
+        echo $admin->showMessage('danger','This category already exists');
+    }
+}
 
 ?>

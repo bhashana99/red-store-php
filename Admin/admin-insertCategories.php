@@ -13,12 +13,13 @@ require_once './assets/php/admin-db.php';
             <form action="#" id="categoryAddForm" class="px-3">
     <div class="form-row align-items-center">
         <div class="col">
-            <input type="text" class="form-control" id="newCategoryName" placeholder="Enter category name" autofocus>
+            <input type="text" class="form-control" name='NewCategory' id="newCategoryName" placeholder="Enter category name" autofocus>
         </div>
         <div class="col-auto">
             <input type="submit" class="btn btn-success" id="categoryAddBtn" value="Submit">
         </div>
     </div>
+    <div id="adminLoginAlert"></div>
 </form>
 
         </div>
