@@ -99,6 +99,8 @@ if(isset($_POST['del_id'])){
     $admin->delete_category($id);
 }
 
+//
+
 //Handle Add Product Ajax Request
 if(isset($_POST['action']) && $_POST['action'] == 'productAdd'){
     $product_title = $admin->test_input($_POST['product_title']);

@@ -27,7 +27,7 @@ require_once './assets/php/admin-header.php';
                             <input type="text" class="form-control" id="product_keywords" placeholder="Enter product keywords"  required autocomplete="off">
                         </div>
 
-                        <div class="form-row mt-2">
+                        <div class="form-row mt-2" id="showCategoryName">
                             <label for="category">Select a Category</label>
                             <select name="product_category" id="category" class="form-control" aria-label=".form-select-lg example">
                                 <option value="" selected>Choose...</option>
@@ -99,6 +99,22 @@ require_once './assets/php/admin-header.php';
 
 
 $(document).ready(function(){
+
+//Display category name
+function displayCategory(){
+    $.ajax({
+       url:'assets/php/admin-action.php',
+       method:'post',
+       data:{action: 'displayCategory'},
+       success: function(response){
+            $("#showCategoryName").html(response);
+       } 
+    });
+}
+
+
+
+
 //Add New product Ajax request
 $("#insert_product_btn").click(function(e){
     if($("#productAddForm")[0].checkValidity()){
