@@ -75,6 +75,14 @@ class Admin extends Database{
      }
 
      //Check  product
+     public function check_product($product_title){
+      $sql = "SELECT * FROM products WHERE product_title=:product_title";
+      $stmt = $this->conn->prepare($sql);
+      $stmt->execute(['product_title'=>$product_title]);
+      $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+      return $row;
+     }
 
 }
 
