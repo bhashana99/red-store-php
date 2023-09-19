@@ -28,13 +28,14 @@ require_once './assets/php/admin-header.php';
                         </div>
 
                         <div class="form-row mt-2" id="showCategoryName">
-                            <label for="category">Select a Category</label>
+                            <!-- <label for="category">Select a Category</label>
                             <select name="product_category" id="category" class="form-control" aria-label=".form-select-lg example">
                                 <option value="" selected>Choose...</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>        
-                            </select>
+                            </select> -->
+                            <div id="categoryError"></div>
                         </div>
                     </div>
                     <div class="col-1"></div>
@@ -100,6 +101,7 @@ require_once './assets/php/admin-header.php';
 
 $(document).ready(function(){
 
+    displayCategory();
 //Display category name
 function displayCategory(){
     $.ajax({
@@ -107,7 +109,7 @@ function displayCategory(){
        method:'post',
        data:{action: 'displayCategory'},
        success: function(response){
-            $("#showCategoryName").html(response);
+            $("#showCategoryName").html(response);       
        } 
     });
 }
@@ -126,7 +128,10 @@ $("#insert_product_btn").click(function(e){
             method:'post',
             data:$("#productAddForm").serialize()+'&action=productAdd',
             success:function(response){
-                console.log(response);
+                if(response === 'product_add'){
+                    $("#insert_product_btn").val('ADD');
+                    
+                }
             }
         });
     }

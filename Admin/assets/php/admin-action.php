@@ -99,7 +99,26 @@ if(isset($_POST['del_id'])){
     $admin->delete_category($id);
 }
 
-//
+//Handle display category name
+if(isset($_POST['action']) && $_POST['action'] == 'displayCategory' ){
+    $category = $admin->fetchAll_Categories();
+
+    $output = "<label for='category'>Select a Category</label>
+    <select name='product_category' id='category' class='form-control' aria-label='.form-select-lg example'>
+    <option value='' selected>Choose...</option> ";
+
+    if($category){
+        
+        foreach($category as $row){
+            $output .= "<option value='".$row['id']."'>".$row['title']."</option>";
+        }
+    }else{
+        echo $admin->showMessage('danger','You should Add first Category');
+    }
+
+    $output .= ' </select>';
+    echo $output;
+}
 
 //Handle Add Product Ajax Request
 if(isset($_POST['action']) && $_POST['action'] == 'productAdd'){
