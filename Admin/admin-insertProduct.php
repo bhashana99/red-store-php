@@ -10,7 +10,7 @@ require_once './assets/php/admin-header.php';
     </div>
 
     <div class="container">
-        <form action="" >
+        <form action="#" id="productAddForm" >
                 <div class="row">
                     <div class="col-5 mx-auto">
                         
@@ -74,7 +74,7 @@ require_once './assets/php/admin-header.php';
                 </div>
                 <div class="row mt-4">
                     <div class="col-auto mx-auto">
-                    <input type="submit" id="insert_product" class="btn btn-primary btn-lg  py-2 px-5 " value="ADD" name="insert_product">
+                    <input type="submit" id="insert_product_btn" class="btn btn-primary btn-lg  py-2 px-5 " value="ADD" name="insert_product">
                     </div>
                 </div>
             
@@ -99,6 +99,23 @@ require_once './assets/php/admin-header.php';
 
 
 $(document).ready(function(){
+//Add New product Ajax request
+$("#insert_product_btn").click(function(e){
+    if($("#productAddForm")[0].checkValidity()){
+        e.preventDefault();
+
+        $(this).val('Please Wait..');
+        $.ajax({
+            url:'assets/php/admin-action.php',
+            method:'post',
+            data:$("#productAddForm").serialize()+'&action=productAdd',
+            success:function(response){
+                console.log(response);
+            }
+        });
+    }
+});
+
 
 });
 
