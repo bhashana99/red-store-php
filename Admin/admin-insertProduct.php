@@ -51,12 +51,12 @@ require_once './assets/php/admin-header.php';
                         </div>
 
                         <div class="custom-file mt-2">
-                            <label for="product_image1" class="custom-file-label">Product image3</label>
+                            <label for="product_image3" class="custom-file-label">Product image3</label>
                             <input type="file" name="product_image3" id="product_image3" class="custom-file-input"  required>
                         </div>
 
                         <div class="custom-file mt-2">
-                            <label for="product_image1" class="custom-file-label">Product image4</label>
+                            <label for="product_image4" class="custom-file-label">Product image4</label>
                             <input type="file" name="product_image4" id="product_image4" class="custom-file-input"  required>
                         </div>
 

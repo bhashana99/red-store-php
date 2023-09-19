@@ -99,5 +99,28 @@ if(isset($_POST['del_id'])){
     $admin->delete_category($id);
 }
 
+//Handle Add Product Ajax Request
+if(isset($_POST['action']) && $_POST['action'] == 'productAdd'){
+    $product_title = $_POST['product_title'];
+    $product_description = $_POST['product_description'];
+    $product_keywords = $_POST['product_keywords'];
+    $category = $_POST['category'];
+    $product_image1 = $_POST['product_image1'];
+    $product_image2 = $_POST['product_image2'];
+    $product_image3 = $_POST['product_image3'];
+    $product_image4 = $_POST['product_image4'];
+    $product_price = $_POST['product_price'];
+    
+    $haveProduct = $admin->check_product($product_title);
+
+    if($haveProduct == null){
+        
+        echo 'product_add';
+    }else{
+        echo $admin->showMessage('danger', 'This product already exists');
+    }
+    
+}
+
 
 ?>
