@@ -10,7 +10,7 @@ require_once './assets/php/admin-header.php';
     </div>
 
     <div class="container">
-        <form action="#" id="productAddForm" >
+        <form action="#" id="productAddForm"  enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-5 mx-auto">
                         
