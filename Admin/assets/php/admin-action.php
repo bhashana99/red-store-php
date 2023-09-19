@@ -101,11 +101,11 @@ if(isset($_POST['del_id'])){
 
 //Handle Add Product Ajax Request
 if(isset($_POST['action']) && $_POST['action'] == 'productAdd'){
-    $product_title = $_POST['product_title'];
-    $product_description = $_POST['product_description'];
+    $product_title = $admin->test_input($_POST['product_title']);
+    $product_description = $admin->test_input($_POST['product_description']);
     $product_keywords = $_POST['product_keywords'];
     $category_id = $_POST['category_id'];
-    $product_price = $_POST['product_price'];
+    $product_price = $admin->test_input($_POST['product_price']);
     $status = true;
 
     //accessing image
