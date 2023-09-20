@@ -11,7 +11,7 @@ require_once './assets/php/admin-header.php';
                 <h4 class="m-0 ">All Product</h4>
             </div>
             <div class="card-body">
-                <div class="table-responsive" id="showAllCategories">
+                <div class="table-responsive" id="showAllProducts">
                     <p class="text-center align-self-center lead">Please Wait...</p>
                 </div>
             </div>
@@ -28,6 +28,28 @@ require_once './assets/php/admin-header.php';
             </div>
         </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+
+        //fetch all products ajax request
+        function fetchAllProduct(){
+            $.ajax({
+                url:'assets/php/admin-action.php',
+                method:'post',
+                data:{action:'fetchAllProduct'},
+                success:function(response){
+                    $("#showAllProducts").html(response);
+                    $("table").DataTable();
+                }
+            })
+        }
+
+
+
+
+    });
+</script>
     
 </body>
 </html>
