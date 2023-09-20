@@ -10,7 +10,7 @@ require_once './assets/php/admin-header.php';
     </div>
 
     <div class="container">
-        <form action="#" id="productAddForm"  enctype="multipart/form-data">
+        <form action="#" id="productAddForm" method="post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-5 mx-auto">
                         
@@ -115,36 +115,23 @@ function displayCategory(){
 }
 
 
-
-
-//Add New product Ajax request
+//add new product ajax request
 $("#insert_product_btn").click(function(e){
     if($("#productAddForm")[0].checkValidity()){
         e.preventDefault();
 
-        $(this).val('Please Wait..');
+        $("#insert_product_btn").val('Wait..');
         $.ajax({
             url:'assets/php/admin-action.php',
             method:'post',
-            data:$("#productAddForm").serialize()+'&action=productAdd',
+            data:$("#productAddForm").serialize()+'&action=add_product',
             success:function(response){
-                if(response === 'product_add'){
-                    $("#insert_product_btn").val('ADD');
-                    $("#productAddForm")[0].reset();
-                    $("#productAddError").html('');
-                    Swal.fire({
-                        title: 'Product Add Successfully',
-                        type: 'success'
-                    });
-                }else{
-                    $("#productAddError").html(response);
-                    // $("#insert_product_btn").val('ADD');
-                }
+                console.log(response);
             }
-        });
+
+        })
     }
 });
-
 
 });
 

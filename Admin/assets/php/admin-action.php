@@ -143,21 +143,23 @@ if(isset($_POST['insert_product'])){
      $temp_image3 = $_FILES['product_image3']['tmp_name'];
      $temp_image4 = $_FILES['product_image4']['tmp_name'];
 
+     print_r($product_title);
+
      
     
-    $haveProduct = $admin->check_product($product_title);
+    // $haveProduct = $admin->check_product($product_title);
 
-    if($haveProduct == null){
-        $admin->insert_product($product_title,$product_description,$product_keywords,$category_id,$product_image1,$product_image2,$product_image3,$product_image4,$product_price,$status);
-        echo 'product_add';
-        move_uploaded_file($temp_image1,"./product_images/$product_image1");
-        move_uploaded_file($temp_image2,"./product_images/$product_image2");
-        move_uploaded_file($temp_image3,"./product_images/$product_image3");
-        move_uploaded_file($temp_image4,"./product_images/$product_image4");
+    // if($haveProduct == null){
+    //     $admin->insert_product($product_title,$product_description,$product_keywords,$category_id,$product_image1,$product_image2,$product_image3,$product_image4,$product_price,$status);
+    //     echo 'product_add';
+    //     move_uploaded_file($temp_image1,"./product_images/$product_image1");
+    //     move_uploaded_file($temp_image2,"./product_images/$product_image2");
+    //     move_uploaded_file($temp_image3,"./product_images/$product_image3");
+    //     move_uploaded_file($temp_image4,"./product_images/$product_image4");
      
-    }else{
-        echo $admin->showMessage('danger', 'This product already exists');
-    }
+    // }else{
+    //     echo $admin->showMessage('danger', 'This product already exists');
+    // }
     
 }
 
