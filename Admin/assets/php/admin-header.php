@@ -11,7 +11,7 @@ $titles = array(
     'admin-allPayments.php' => 'All Payments',
     'admin-notification.php' => 'Notification',
     'admin-insertProduct.php' => 'Insert Product',
-    'admin-viewProducts.php' => 'View Products',
+    'admin-viewProducts.php' => 'Product Customize',
     'admin-insertCategories.php' => 'Categories',
     'admin-users.php' => 'Users',
     'admin-blockUser.php' => 'Blocked Users',
@@ -101,7 +101,7 @@ $title = isset($titles[$currentFile]) ? $titles[$currentFile] : 'Default Title';
 
                     <a href="admin-viewProducts.php" class="list-group-item text-light admin-link
                     <?= (basename($_SERVER['PHP_SELF']) == 'admin-viewProducts.php')? "nav-active":"" ?>">
-                    <i class="fa-solid fa-eye"></i>&nbsp;&nbsp;View Products
+                    <i class="fa-solid fa-wrench"></i>&nbsp;&nbsp;Products Customize
                     </a>
 
                     <a href="admin-insertCategories.php" class="list-group-item text-light admin-link
