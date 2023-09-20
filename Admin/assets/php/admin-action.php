@@ -126,16 +126,18 @@ if(isset($_POST['action']) && $_POST['action'] == 'displayCategory' ){
 if(isset($_POST['action']) && $_POST['action'] == 'fetchAllProduct'){
     $output = '';
     $data = $admin->fetchAll_product();
+    $path = 'product_images/';
     
     if($data){
         $output .= '<table class="table table-striped table-bordered text-center">
         <thead>
             <tr>
                 <th>#</th>
-                <th>Product</th>
-                <th>Description</th>
-                <th>Keyword</th>
                 <th>Image</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Keyword</th>
                 <th>Price</th>
                 <th>Action</th>
                 
@@ -143,12 +145,18 @@ if(isset($_POST['action']) && $_POST['action'] == 'fetchAllProduct'){
                 </thead>
                 <tbody>';
                 foreach($data as $product){
+
+                    $image1 = $path.$product['image1'];
+                    //echo $image1;
+                    
+
                     $output .= '<tr>
                                     <td>'.$product['id'].'</td>
+                                    <td><img src="'.$image1.'" class="rounded mx-auto d-block" width="50px" height="50px"></td>
                                     <td>'.$product['title'].'</td>
                                     <td>'.$product['description'].'</td>
                                     <td>'.$product['keyword'].'</td>
-                                    <td>'.$product['image1'].'</td>
+                                    
                                     <td>$'.$product['price'].'</td>
                                     <td>
                                     <a href="#" id="'.$product['id'].'" title="Edit Product" 

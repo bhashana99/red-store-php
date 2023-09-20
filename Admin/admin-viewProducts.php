@@ -43,9 +43,10 @@ require_once './assets/php/admin-header.php';
                     $("#showAllProducts").html(response);
                     $("table").DataTable();
                 }
-            })
+            });
         }
 
+        
 
 
 
