@@ -16,15 +16,15 @@ require_once './assets/php/admin-header.php';
                         
                         <div class="form-row mt-2">
                             <label for="product_title" class="form-label">Product Title</label>
-                            <input type="text" class="form-control" id="product_title" placeholder="Enter product title" autofocus required autocomplete="off">
+                            <input type="text" class="form-control" name="product_title" id="product_title" placeholder="Enter product title" autofocus required autocomplete="off">
                         </div>
                         <div class="form-row mt-2">
                             <label for="product_description" class="form-label">Product description</label>
-                            <input type="text" class="form-control" id="product_description" placeholder="Enter product description"  required autocomplete="off">
+                            <input type="text" class="form-control" name="product_description" id="product_description" placeholder="Enter product description"  required autocomplete="off">
                         </div>
                         <div class="form-row mt-2">
                             <label for="product_keywords" class="form-label">Product keywords</label>
-                            <input type="text" class="form-control" id="product_keywords" placeholder="Enter product keywords"  required autocomplete="off">
+                            <input type="text" class="form-control" name="product_keywords" id="product_keywords" placeholder="Enter product keywords"  required autocomplete="off">
                         </div>
 
                         <div class="form-row mt-2" id="showCategoryName">
@@ -66,7 +66,7 @@ require_once './assets/php/admin-header.php';
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">$</span>
                                 </div>
-                                <input type="text" class="form-control" id="product_price" placeholder="Enter product price"  required autocomplete="off">
+                                <input type="text" class="form-control" name="product_price" id="product_price" placeholder="Enter product price"  required autocomplete="off">
                             </div>
                             
                         </div>
@@ -127,6 +127,17 @@ $("#insert_product_btn").click(function(e){
             data:$("#productAddForm").serialize()+'&action=add_product',
             success:function(response){
                 console.log(response);
+                if(response === 'product_add_done'){
+                    $("#insert_product_btn").val('ADD');
+                    $("#productAddForm")[0].reset();
+                    $("#productAddError").html('');
+                    Swal.fire({
+                        title: 'Category Add Successfully',
+                        type: 'success'
+                   });
+                }else{
+                    $("#productAddError").html(response);
+                    $("#insert_product_btn").val('ADD');                    }
             }
 
         })
