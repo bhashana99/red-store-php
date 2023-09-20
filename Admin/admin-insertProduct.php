@@ -123,10 +123,12 @@ $("#insert_product_btn").click(function(e){
         $("#insert_product_btn").val('Wait..');
         $.ajax({
             url:'assets/php/admin-action.php',
-            method:'post',
-            data:$("#productAddForm").serialize()+'&action=add_product',
+            processData: false,
+            contentType:false,
+            cache:false,
+            data: new FormData(this),
             success:function(response){
-                console.log(response);
+              //  console.log(response);
                 if(response === 'product_add_done'){
                     $("#insert_product_btn").val('ADD');
                     $("#productAddForm")[0].reset();
