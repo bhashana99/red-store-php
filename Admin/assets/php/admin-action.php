@@ -121,7 +121,9 @@ if(isset($_POST['action']) && $_POST['action'] == 'displayCategory' ){
 }
 
 //Handle Add Product Ajax Request
-if(isset($_POST['action']) && $_POST['action'] == 'productAdd'){
+if(isset($_POST['insert_product'])){
+    
+
     $product_title = $admin->test_input($_POST['product_title']);
     $product_description = $admin->test_input($_POST['product_description']);
     $product_keywords = $_POST['product_keywords'];

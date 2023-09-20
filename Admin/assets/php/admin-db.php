@@ -86,7 +86,7 @@ class Admin extends Database{
 
      //insert product
      public function insert_product($title,$desc,$keyword,$category_id,$img1,$img2,$img3,$img4,$price,$status){
-      $sql = "INSERT INTO product(title,desc,keyword,category_id,img1,img2,img3,img4,price,date,status)VALUES (:title,:desc,:keyword,:category_id,:img1,:img2,:img3,:img4,:price,NOW(),:status";
+      $sql = "INSERT INTO product(title,desc,keyword,category_id,img1,img2,img3,img4,price,date,status)VALUES (:title,:desc,:keyword,:category_id,:img1,:img2,:img3,:img4,:price,NOW(),:status)";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute(['title'=>$title,'desc'=>$desc,'keyword'=>$keyword,'category_id'=>$category_id,'img1'=>$img1,'img2'=>$img2,'img3'=>$img3,'img4'=>$img4,'price'=>$price,'status'=>$status]);
       return true;

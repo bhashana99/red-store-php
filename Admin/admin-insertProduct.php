@@ -73,6 +73,7 @@ require_once './assets/php/admin-header.php';
                         </div>
                     </div>
                 </div>
+                <div id="productAddError"></div>
                 <div class="row mt-4">
                     <div class="col-auto mx-auto">
                     <input type="submit" id="insert_product_btn" class="btn btn-primary btn-lg  py-2 px-5 " value="ADD" name="insert_product">
@@ -130,7 +131,15 @@ $("#insert_product_btn").click(function(e){
             success:function(response){
                 if(response === 'product_add'){
                     $("#insert_product_btn").val('ADD');
-                    
+                    $("#productAddForm")[0].reset();
+                    $("#productAddError").html('');
+                    Swal.fire({
+                        title: 'Product Add Successfully',
+                        type: 'success'
+                    });
+                }else{
+                    $("#productAddError").html(response);
+                    // $("#insert_product_btn").val('ADD');
                 }
             }
         });
