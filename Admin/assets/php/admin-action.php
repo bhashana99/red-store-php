@@ -120,46 +120,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'displayCategory' ){
     echo $output;
 }
 
-// //Handle Add Product Ajax Request
-// if(isset($_POST['product_title'])){
-    
-//     $folder = 'product_images/';
-//     $allowType = array('jpg','png','jpeg');
-//     $uploadStatus = 0;
-    
 
-//     $product_title = $admin->test_input($_POST['product_title']);
-//     $product_description = $admin->test_input($_POST['product_description']);
-//     $product_keywords = $_POST['product_keywords'];
-//     $category_id = $_POST['product_category'];
-//     $product_price = $admin->test_input($_POST['product_price']);
-//     $status = true;
-
-//     $folder= 'uploads/';
-//     if(isset($_FILES['product_image1']['name']) && ($_FILES['product_image1']['name'] != "")){
-//         $newImage1 = $folder.$_FILES['product_image1']['name'];
-//         move_uploaded_file($_FILES['product_image1']['temp'],$newImage1);
-//     }
-  
-    
-//     $product_image1 = $folder.$_FILES['product_image1']['name'];
-//     $product_image2 = $folder.$_FILES['product_image2']['name'];
-//     $product_image3 = $folder.$_FILES['product_image3']['name'];
-//     $product_image4 = $folder.$_FILES['product_image4']['name'];
-
-
-
-//     $haveProduct = $admin->check_product($product_title);
-
-//     if($haveProduct == null){
-//         $admin->insert_product($product_title,$product_description,$product_keywords,$category_id,$product_image1,$product_image2,$product_image3,$product_image4,$product_price,$status);
-        
-
-//     }else{
-//         echo $admin->showMessage('danger', 'This product already exists');
-//     }
-    
-// }
 
 //Handle Fetch all products Ajax Request
 if(isset($_POST['action']) && $_POST['action'] == 'fetchAllProduct'){
@@ -206,7 +167,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'fetchAllProduct'){
                         
                 echo $output;            
     } else{
-        echo '<h3 class="text-center text-secondary">:( You have not category yet!';
+        echo '<h3 class="text-center text-secondary">:( You have not product yet!';
       }
 }
 

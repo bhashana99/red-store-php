@@ -1,6 +1,62 @@
 <?php
 
 require_once './assets/php/admin-header.php';
+require_once './assets/php/admin-db.php';
+
+$pAdmin = new Admin();
+
+if(isset($_POST['insert_product'])){
+    
+
+    $product_title = $pAdmin->test_input($_POST['product_title']);
+    $product_description = $pAdmin->test_input($_POST['product_description']);
+    $product_keywords = $_POST['product_keywords'];
+    $category_id = $_POST['product_category'];
+    $product_price = $pAdmin->test_input($_POST['product_price']);
+    $status = true;
+    $product_image1=$_FILES['product_image1']['name'];
+    $product_image2=$_FILES['product_image2']['name'];
+    $product_image3=$_FILES['product_image3']['name'];
+    $product_image4=$_FILES['product_image4']['name'];
+    $tmp_image1=$_FILES['product_image1']['tmp_name'];
+    $tmp_image2=$_FILES['product_image2']['tmp_name'];
+    $tmp_image3=$_FILES['product_image3']['tmp_name'];
+    $tmp_image4=$_FILES['product_image4']['tmp_name'];
+
+    if($product_title=='' or $product_description=='' or $product_keywords==''
+           or $product_price=='' or  $product_image1=='' or  $product_image2=='' or  $product_image3==''){
+          echo"<script>alert('All filed required')</script>";
+           } else {
+            $haveProduct = $pAdmin->check_product($product_title);
+            if($haveProduct == null){
+                
+                $pAdmin->insert_product($product_title,$product_description,$product_keywords,$category_id,$product_image1,$product_image2,$product_image3,$product_image4,$product_price,$status);
+                move_uploaded_file($tmp_image1,"./product_images/$product_image1");
+              move_uploaded_file($tmp_image2,"./product_images/$product_image2");
+              move_uploaded_file($tmp_image3,"./product_images/$product_image3");
+              move_uploaded_file($tmp_image4,"./product_images/$product_image4");
+
+              echo "<script>
+              
+              Swal.fire({
+                title: 'Category Add Successfully',
+                type: 'success'
+            });
+              
+              document.getElementById('productAddForm').reset();
+              </script>";
+
+        
+            }else{
+                        echo $pAdmin->showMessage('danger', 'This product already exists');
+                    }
+ 
+           }
+}
+
+
+
+
 
 ?>
 
@@ -75,7 +131,7 @@ require_once './assets/php/admin-header.php';
                 <div id="productAddError"></div>
                 <div class="row mt-4">
                     <div class="col-auto mx-auto">
-                    <input type="submit" id="insert_product_btn" class="btn btn-primary btn-lg  py-2 px-5 " value="ADD" name="insert_product_btn">
+                    <input type="submit" id="insert_product_btn" class="btn btn-primary btn-lg  py-2 px-5 " value="ADD" name="insert_product">
                     </div>
                 </div>
             
@@ -115,26 +171,6 @@ function displayCategory(){
 }
 
 
-//add new product ajax request
-$("#productAddForm").submit(function(e){
-    e.preventDefault();
-    $.ajax({
-        url:'assets/php/admin-action.php',
-        method:'post',
-        contentType: false,
-        dataType:'json',
-        cache: false,
-        processData:false,
-   data: new FormData(this),
-   beforeSend: function(){
-    $("#insert_product_btn").attr("disabled","disabled");
-    $("#insert_product_btn").val('Wait..');
-   },
-   success:function(response){
-       location.reload();
-   }
-    });
-});
 
 });
 
