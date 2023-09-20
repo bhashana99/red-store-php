@@ -40,28 +40,27 @@ require_once './assets/php/admin-header.php';
                     </div>
                     <div class="col-1"></div>
                     <div class="col-5 mx-auto">
+
+                    <div class="form-row mt-2">
+                        <label for="product_image1" class="mr-2 form-label">Product image1 :</label>
+                        <input type="file" name="product_image1" id="product_image1" class="form-control "  required>
+                    </div>
+                    <div class="form-row mt-2">
+                        <label for="product_image2" class="mr-2 form-label">Product image2 :</label>
+                        <input type="file" name="product_image2" id="product_image2" class="form-control "  required>
+                    </div>
+                    <div class="form-row mt-2">
+                        <label for="product_image3" class="mr-2 form-label">Product image3 :</label>
+                        <input type="file" name="product_image3" id="product_image3" class="form-control "  required>
+                    </div>
+                    <div class="form-row mt-2">
+                        <label for="product_image4" class="mr-2 form-label">Product image4 :</label>
+                        <input type="file" name="product_image4" id="product_image4" class="form-control "  required>
+                    </div>
                         
-                        <div class="custom-file mt-4">
-                            <label for="product_image1" class="custom-file-label">Product image1</label>
-                            <input type="file" name="product_image1" id="product_image1" class="custom-file-input"  required>
-                        </div>
+                        
 
-                        <div class="custom-file mt-2">
-                            <label for="product_image2" class="custom-file-label">Product image2</label>
-                            <input type="file" name="product_image2" id="product_image2" class="custom-file-input"  required>
-                        </div>
-
-                        <div class="custom-file mt-2">
-                            <label for="product_image3" class="custom-file-label">Product image3</label>
-                            <input type="file" name="product_image3" id="product_image3" class="custom-file-input"  required>
-                        </div>
-
-                        <div class="custom-file mt-2">
-                            <label for="product_image4" class="custom-file-label">Product image4</label>
-                            <input type="file" name="product_image4" id="product_image4" class="custom-file-input"  required>
-                        </div>
-
-                        <div class="form-row mt-5">
+                        <div class="form-row mt-3">
                             <label for="product_price" class="form-label">Product price</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
