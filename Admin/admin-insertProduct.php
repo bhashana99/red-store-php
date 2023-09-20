@@ -75,7 +75,7 @@ require_once './assets/php/admin-header.php';
                 <div id="productAddError"></div>
                 <div class="row mt-4">
                     <div class="col-auto mx-auto">
-                    <input type="submit" id="insert_product_btn" class="btn btn-primary btn-lg  py-2 px-5 " value="ADD" name="insert_product">
+                    <input type="submit" id="insert_product_btn" class="btn btn-primary btn-lg  py-2 px-5 " value="ADD" name="insert_product_btn">
                     </div>
                 </div>
             
@@ -116,34 +116,24 @@ function displayCategory(){
 
 
 //add new product ajax request
-$("#insert_product_btn").click(function(e){
-    if($("#productAddForm")[0].checkValidity()){
-        e.preventDefault();
-
-        $("#insert_product_btn").val('Wait..');
-        $.ajax({
-            url:'assets/php/admin-action.php',
-            processData: false,
-            contentType:false,
-            cache:false,
-            data: new FormData(this),
-            success:function(response){
-              //  console.log(response);
-                if(response === 'product_add_done'){
-                    $("#insert_product_btn").val('ADD');
-                    $("#productAddForm")[0].reset();
-                    $("#productAddError").html('');
-                    Swal.fire({
-                        title: 'Category Add Successfully',
-                        type: 'success'
-                   });
-                }else{
-                    $("#productAddError").html(response);
-                    $("#insert_product_btn").val('ADD');                    }
-            }
-
-        })
-    }
+$("#productAddForm").submit(function(e){
+    e.preventDefault();
+    $.ajax({
+        url:'assets/php/admin-action.php',
+        method:'post',
+        contentType: false,
+        dataType:'json',
+        cache: false,
+        processData:false,
+   data: new FormData(this),
+   beforeSend: function(){
+    $("#insert_product_btn").attr("disabled","disabled");
+    $("#insert_product_btn").val('Wait..');
+   },
+   success:function(response){
+       location.reload();
+   }
+    });
 });
 
 });

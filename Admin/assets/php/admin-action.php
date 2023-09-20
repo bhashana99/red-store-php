@@ -121,7 +121,11 @@ if(isset($_POST['action']) && $_POST['action'] == 'displayCategory' ){
 }
 
 //Handle Add Product Ajax Request
-if(isset($_POST['action']) && $_POST['action'] == 'add_product'){
+if(isset($_POST['product_title'])){
+    
+    $folder = 'product_images/';
+    $allowType = array('jpg','png','jpeg');
+    $uploadStatus = 0;
     
 
     $product_title = $admin->test_input($_POST['product_title']);
@@ -131,38 +135,32 @@ if(isset($_POST['action']) && $_POST['action'] == 'add_product'){
     $product_price = $admin->test_input($_POST['product_price']);
     $status = true;
 
-    // //accessing image
-    // $img1 = $_POST['product_image1'];
-    // $img2 = $_POST['product_image2'];
-    // $img3 = $_POST['product_image3'];
-    // $img4 = $_POST['product_image4'];
-
-    $folder = 'product_image/';
+    $folder= 'uploads/';
+    if(isset($_FILES['product_image1']['name']) && ($_FILES['product_image1']['name'] != "")){
+        $newImage1 = $folder.$_FILES['product_image1']['name'];
+        move_uploaded_file($_FILES['product_image1']['temp'],$newImage1);
+    }
+  
+    
     $product_image1 = $folder.$_FILES['product_image1']['name'];
     $product_image2 = $folder.$_FILES['product_image2']['name'];
     $product_image3 = $folder.$_FILES['product_image3']['name'];
     $product_image4 = $folder.$_FILES['product_image4']['name'];
 
-     
 
-     
-    
+
     $haveProduct = $admin->check_product($product_title);
 
     if($haveProduct == null){
         $admin->insert_product($product_title,$product_description,$product_keywords,$category_id,$product_image1,$product_image2,$product_image3,$product_image4,$product_price,$status);
-        echo 'product_add_done';
         
-        move_uploaded_file($_FILES['product_image1']['tmp_name'],$product_image1);
-        move_uploaded_file($_FILES['product_image2']['tmp_name'],$product_image2);
-        move_uploaded_file($_FILES['product_image3']['tmp_name'],$product_image3);
-        move_uploaded_file($_FILES['product_image4']['tmp_name'],$product_image4);
-     
+
     }else{
         echo $admin->showMessage('danger', 'This product already exists');
     }
     
 }
+
 
 
 ?>
