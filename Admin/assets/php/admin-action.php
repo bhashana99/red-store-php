@@ -149,14 +149,15 @@ if(isset($_POST['action']) && $_POST['action'] == 'fetchAllProduct'){
                     $image1 = $path.$product['image1'];
                     //echo $image1;
                     $category_id = $product['category_id'];
-                    
+                    $category_name = $admin->get_category($category_id)['title'];
+                    //echo $category_name;
 
                     $output .= '<tr>
                                     <td>'.$product['id'].'</td>
                                     <td><img src="'.$image1.'" class="rounded mx-auto d-block" width="50px" height="50px"></td>
                                     <td>'.$product['title'].'</td>
                                     <td>'.$product['description'].'</td>
-                                    <td></td>
+                                    <td>'.$category_name.'</td>
                                     <td>'.$product['keyword'].'</td>
                                     
                                     <td>$'.$product['price'].'</td>

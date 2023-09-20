@@ -47,7 +47,7 @@ class Admin extends Database{
 
      //get category 
      public function get_category($id){
-      $sql = "SELECT title FROM categories WHERE id=:id";
+      $sql = "SELECT title FROM categories WHERE id=:id ";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute(['id'=>$id]);
       $row = $stmt->fetch(PDO::FETCH_ASSOC);
