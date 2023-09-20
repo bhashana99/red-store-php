@@ -161,6 +161,53 @@ if(isset($_POST['product_title'])){
     
 }
 
+//Handle Fetch all products Ajax Request
+if(isset($_POST['action']) && $_POST['action'] == 'fetchAllProduct'){
+    $output = '';
+    $data = $admin->fetchAll_product();
+    
+    if($data){
+        $output .= '<table class="table table-striped table-bordered text-center">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Product</th>
+                <th>Description</th>
+                <th>Keyword</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Action</th>
+                
+                </tr>
+                </thead>
+                <tbody>';
+                foreach($data as $product){
+                    $output .= '<tr>
+                                    <td>'.$product['id'].'</td>
+                                    <td>'.$product['title'].'</td>
+                                    <td>'.$product['description'].'</td>
+                                    <td>'.$product['keyword'].'</td>
+                                    <td>'.$product['image1'].'</td>
+                                    <td>$'.$product['price'].'</td>
+                                    <td>
+                                    <a href="#" id="'.$product['id'].'" title="Edit Product" 
+                                     class="text-primary categoryEditIcon" data-toggle="modal" data-target="#editCategoryModal" >
+                                     <i class="fa-solid fa-pen-to-square"></i></a>&nbsp;&nbsp;
 
+                                    <a href="#" id="'.$product['id'].'" title="Delete product" class="text-danger deleteCategoryIcon" >
+                                    <i class="fas fa-trash-alt fa-lg"></i></a>&nbsp;&nbsp;
+                                 </td>
+                                </tr>';
+                    
+                    
+                }
+                $output .= '</tbody>
+                </table>';
+                        
+                echo $output;            
+    } else{
+        echo '<h3 class="text-center text-secondary">:( You have not category yet!';
+      }
+}
 
 ?>

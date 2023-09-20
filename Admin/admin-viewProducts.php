@@ -32,6 +32,7 @@ require_once './assets/php/admin-header.php';
 <script>
     $(document).ready(function(){
 
+        fetchAllProduct();
         //fetch all products ajax request
         function fetchAllProduct(){
             $.ajax({
