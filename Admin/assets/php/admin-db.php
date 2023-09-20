@@ -92,6 +92,15 @@ class Admin extends Database{
       return true;
      }
 
+     //fetch all products
+     public function fetchAll_product(){
+      $sql = "SELECT * FROM product";
+      $stmt = $this->conn->prepare($sql);
+      $stmt->execute();
+      $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+      return $row;
+     }
 }
 
    
