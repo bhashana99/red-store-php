@@ -110,6 +110,16 @@ class Admin extends Database{
 
       return $row;
      }
+
+     //fetchAll Product details
+     public function getProductDetails($id){
+      $sql = "SELECT * FROM product WHERE id=:id";
+      $stmt = $this->conn->prepare($sql);
+      $stmt->execute(['id'=>$id]);
+      $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+      return $row;
+     }
 }
 
    
