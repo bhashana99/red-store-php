@@ -183,6 +183,16 @@ if(isset($_POST['action']) && $_POST['action'] == 'fetchAllProduct'){
 }
 
 
+//handle product edit ajax request
+if(isset($_POST['pEdit_id'])){
+    //print_r($_POST);
+    $id = $_POST['pEdit_id'];
+    // print_r($id);
+    $row = $admin->getProductDetails($id);
+    // print_r($row);
+    echo json_encode($row);
+
+}
 
 
 
