@@ -78,10 +78,10 @@ require_once './assets/php/admin-header.php';
         }
 
         //Edit Product details Ajax request
-        $("body").on("click",".editProductBtn",function(e){
+        $("body").on("click",".productEditIcon",function(e){
             e.preventDefault();
 
-            $edit_id = $(this).attr('id');
+            edit_id = $(this).attr('id');
             $.ajax({
                 url:'assets/php/admin-action.php',
                 method:'post',
@@ -89,8 +89,8 @@ require_once './assets/php/admin-header.php';
                 success:function(response){
                     console.log(response);
                 }
-            })
-        })
+            });
+        });
 
 
 

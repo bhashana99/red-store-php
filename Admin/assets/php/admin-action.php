@@ -162,11 +162,11 @@ if(isset($_POST['action']) && $_POST['action'] == 'fetchAllProduct'){
                                     
                                     <td>$'.$product['price'].'</td>
                                     <td>
-                                    <a href="#" id="'.$product['id'].'" title="Edit Product" 
-                                     class="text-primary categoryEditIcon" data-toggle="modal" data-target="#editProductModal" >
+                                    <a href="#" id="'.$product['id'].'" title="Edit Product details" 
+                                     class="text-primary productEditIcon" data-toggle="modal" data-target="#editProductModal" >
                                      <i class="fa-solid fa-pen-to-square"></i></a>&nbsp;&nbsp;
 
-                                    <a href="#" id="'.$product['id'].'" title="Delete product" class="text-danger deleteCategoryIcon" >
+                                    <a href="#" id="'.$product['id'].'" title="Delete product" class="text-danger deleteProductIcon" >
                                     <i class="fas fa-trash-alt fa-lg"></i></a>&nbsp;&nbsp;
                                  </td>
                                 </tr>';
@@ -181,5 +181,17 @@ if(isset($_POST['action']) && $_POST['action'] == 'fetchAllProduct'){
         echo '<h3 class="text-center text-secondary">:( You have not product yet!';
       }
 }
+
+//Handle Edit product details 
+if(isset($_POST['edit_id'])){
+//  print_r($_POST);
+$id = $_POST['edit_id'];
+$row = $admin->getProductDetails($id);
+echo json_encode($row);   
+}
+
+
+
+
 
 ?>
