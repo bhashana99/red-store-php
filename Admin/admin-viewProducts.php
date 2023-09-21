@@ -97,7 +97,7 @@ require_once './assets/php/admin-header.php';
             success: function(response){
                 // console.log(response);
                 var data = JSON.parse(response);
-                console.log(data);
+                // console.log(data);
                 $("#id").val(data.id);
                 $("#title").val(data.title);
                 $("#description").val(data.description);
@@ -130,6 +130,40 @@ require_once './assets/php/admin-header.php';
                 }
             })
         }
+       });
+
+       //delete product ajax request
+       $("body").on("click",".deleteProductIcon",function(e){
+        e.preventDefault();
+
+        var pDel_id = $(this).attr("id");
+        Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.value) {
+          $.ajax({
+            url: 'assets/php/process.php',
+            method:'post',
+            data:{pDel_id: pDel_id},
+            success:function(response){
+              Swal.fire(
+                'Deleted!',
+                'Note deleted successfully!',
+                'success'
+          )
+         
+            }
+
+          });
+         
+        }
+      });
        });
 
 
