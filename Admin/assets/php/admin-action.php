@@ -203,10 +203,15 @@ if(isset($_POST['action']) && $_POST['action'] == 'update_product'){
     $price = $admin->test_input($_POST['price']);
 
     $admin->updateProduct($id,$title,$description,$keyword,$price);    
-
 }
 
-
+//Handle delete product ajax request
+if(isset($_POST['pDel_id'])){
+    $id = $admin->test_input($_POST['pDel_id']);
+    // print_r($_POST['pDel_id']);
+    // print_r($id);
+    $admin->delete_product($id);
+}
 
 
 ?>

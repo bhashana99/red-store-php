@@ -116,7 +116,7 @@ class Admin extends Database{
       $sql = "SELECT * FROM product WHERE id=:id";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute(['id'=>$id]);
-      $row = $stmt->fetch(PDO::FETCH_ASSOC);
+      $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
       return $row;
      }
@@ -133,7 +133,8 @@ class Admin extends Database{
      public function delete_product($id){
       $sql = "DELETE FROM product WHERE id=:id";
       $stmt = $this->conn->prepare($sql);
-      $stmt->execute(['id'=>$id]);
+      $stmt->execute(['id' => $id]);
+
       return true;
      }
 
