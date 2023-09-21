@@ -106,8 +106,24 @@ require_once './assets/php/admin-header.php';
                 
 
             }
-        })
+        });
 
+       });
+
+       //update product details ajax request
+       $("#editProductBtn").click(function(e){
+        if($("#editProductForm")[0].checkValidity()){
+            e.preventDefault();
+
+            $.ajax({
+                url:'assets/php/admin-action.php',
+                method:'post',
+                data: $("#editProductForm").serialize()+"&action=update_product",
+                success:function(response){
+                    console.log(response);
+                }
+            })
+        }
        });
 
 
