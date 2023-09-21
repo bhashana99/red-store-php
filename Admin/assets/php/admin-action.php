@@ -163,7 +163,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'fetchAllProduct'){
                                     <td>$'.$product['price'].'</td>
                                     <td>
                                     <a href="#" id="'.$product['id'].'" title="Edit Product" 
-                                     class="text-primary categoryEditIcon" data-toggle="modal" data-target="#editCategoryModal" >
+                                     class="text-primary categoryEditIcon" data-toggle="modal" data-target="#editProductModal" >
                                      <i class="fa-solid fa-pen-to-square"></i></a>&nbsp;&nbsp;
 
                                     <a href="#" id="'.$product['id'].'" title="Delete product" class="text-danger deleteCategoryIcon" >

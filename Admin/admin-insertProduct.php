@@ -76,7 +76,7 @@ if(isset($_POST['insert_product'])){
                         </div>
                         <div class="form-row mt-2">
                             <label for="product_description" class="form-label">Product description</label>
-                            <input type="text" class="form-control" name="product_description" id="product_description" placeholder="Enter product description"  required autocomplete="off">
+                            <textarea class="form-control form-control-lg " id="description" name="description"  rows="4"  placeholder="Write your description Here..." required ></textarea>
                         </div>
                         <div class="form-row mt-2">
                             <label for="product_keywords" class="form-label">Product keywords</label>
