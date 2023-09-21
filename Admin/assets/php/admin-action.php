@@ -194,6 +194,18 @@ if(isset($_POST['pEdit_id'])){
 
 }
 
+if(isset($_POST['action']) && $_POST['action'] == 'update_product'){
+    // print_r($_POST);
+    $id = $admin->test_input($_POST['id']);
+    $title = $admin->test_input($_POST['title']);
+    $description = $admin->test_input($_POST['description']);
+    $keyword = $admin->test_input($_POST['keyword']);
+    $price = $admin->test_input($_POST['price']);
+
+    $admin->updateProduct($id,$title,$description,$keyword,$price);    
+
+}
+
 
 
 
