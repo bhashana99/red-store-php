@@ -128,6 +128,18 @@ class Admin extends Database{
       $stmt->execute(['id'=>$id,'title'=>$title, 'desc'=>$desc, 'keyword'=>$keyword, 'price'=>$price]);
       return true;
      }
+
+     //delete product
+     public function delete_product($id){
+      $sql = "DELETE FROM product WHERE id=:id";
+      $stmt = $this->conn->prepare($sql);
+      $stmt->execute(['id'=>$id]);
+      return true;
+     }
+
+
+
+
 }
 
    
