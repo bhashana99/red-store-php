@@ -77,21 +77,7 @@ require_once './assets/php/admin-header.php';
             });
         }
 
-        //Edit Product details Ajax request
-        $("body").on("click",".productEditIcon",function(e){
-            e.preventDefault();
-
-            edit_id = $(this).attr('id');
-            $.ajax({
-                url:'assets/php/admin-action.php',
-                method:'post',
-                data:{edit_id: edit_id},
-                success:function(response){
-                    console.log(response);
-                }
-            });
-        });
-
+       
 
 
 

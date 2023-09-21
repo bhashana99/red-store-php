@@ -14,7 +14,7 @@ require_once './assets/php/admin-db.php';
             <div id="categoryAddError"></div>
     <div class="form-row align-items-center">
         <div class="col">
-            <input type="text" class="form-control" name='NewCategory' id="newCategoryName" placeholder="Enter category name" autofocus>
+            <input type="text" class="form-control" name='categoryName' id="newCategoryName" placeholder="Enter category name" autofocus>
         </div>
         <div class="col-auto">
             <input type="submit" class="btn btn-success" id="categoryAddBtn" value="Add">

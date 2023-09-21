@@ -24,7 +24,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'adminLogin'){
 
 //Handle Add category Ajax Request
 if(isset($_POST['action']) && $_POST['action'] == 'categoryAdd'){
-    $category = $_POST['NewCategory'];
+    $category = $_POST['categoryName'];
 
     $isCategory = $admin->check_category($category);
 
@@ -182,13 +182,6 @@ if(isset($_POST['action']) && $_POST['action'] == 'fetchAllProduct'){
       }
 }
 
-//Handle Edit product details 
-if(isset($_POST['edit_id'])){
-//  print_r($_POST);
-$id = $_POST['edit_id'];
-$row = $admin->getProductDetails($id);
-echo json_encode($row);   
-}
 
 
 
