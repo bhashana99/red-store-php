@@ -120,6 +120,14 @@ class Admin extends Database{
 
       return $row;
      }
+
+     //Update Product details
+     public function updateProduct($id,$title,$desc,$keyword,$price){
+      $sql = "UPDATE product SET title=:title, description=:desc, keyword=:keyword, price=:price WHERE id=:id";
+      $stmt = $this->conn->prepare($sql);
+      $stmt->execute(['id'=>$id,'title'=>$title, 'desc'=>$desc, 'keyword'=>$keyword, 'price'=>$price]);
+      return true;
+     }
 }
 
    
