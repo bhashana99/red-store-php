@@ -120,7 +120,13 @@ require_once './assets/php/admin-header.php';
                 method:'post',
                 data: $("#editProductForm").serialize()+"&action=update_product",
                 success:function(response){
-                    console.log(response);
+                    // console.log(response);
+                    Swal.fire({
+                        title: 'Product Update successfully!',
+                        type: 'success'
+                    });
+                    $("#editProductForm")[0].reset();
+                    $("#editProductModal").modal('hide');
                 }
             })
         }
