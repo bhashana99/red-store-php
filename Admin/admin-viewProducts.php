@@ -96,9 +96,10 @@ require_once './assets/php/admin-header.php';
             data:{pEdit_id: pEdit_id},
             success: function(response){
                 // console.log(response);
-                var data = JSON.parse(response);
-                // console.log(data);
+                 data = JSON.parse(response);
+                 console.log(data);
                 $("#id").val(data.id);
+                console.log(data.id);
                 $("#title").val(data.title);
                 $("#description").val(data.description);
                 $("#keyword").val(data.keyword);
